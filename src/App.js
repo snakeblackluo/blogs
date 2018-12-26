@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import { Switch, Route } from 'react-router-dom';
+import { History } from './utils/history';
+import Store from './stores';
+import { getRoute } from './utils/urls';
+import Layouts from './views/Layouts';
+import LoginUser from './views/Users/LoginUser';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+const store = Store();
+
+const BasicRouter = () => {
+  return (
+    <Provider store={store}>
+      <ConnectedRouter history={History}>
+        <Switch>
+          <Route path="/user/login" component={LoginUser}></Route>
+          <Route path="/" component={Layouts} ></Route>
+        </Switch>
+      </ConnectedRouter>
+    </Provider>
+  )
 }
 
-export default App;
+export default BasicRouter;

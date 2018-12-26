@@ -1,0 +1,23 @@
+$HEADER_HEIGTH: 64px;
+
+.layout {
+
+    .header {
+        background-color: white;
+    }
+}
+
+:global {
+    .layout-title {
+        width: 100%;
+        line-height: $HEADER_HEIGTH;
+    }
+    h1 {
+        height: $HEADER_HEIGTH;
+        overflow: hidden;
+        text-align: center;
+        margin: 0;
+
+    }
+}
+

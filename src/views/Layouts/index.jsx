@@ -8,10 +8,12 @@ const { Header, Content, Sider } = Layout;
 class BasicLayout extends Component {
     render() {
         return (
-            <Layout>
+            <Layout className={styles['outer-layout']}>
                 <Sider>
                     <div className="layout-title">
-                        <h1>嘿罗官网</h1>
+                        <h1 style={{
+                            color: '#fff',
+                        }}>嘿罗官网</h1>
                     </div>
                 </Sider>
                 <Layout>

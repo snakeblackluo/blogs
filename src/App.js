@@ -15,7 +15,6 @@ const BasicRouter = () => {
     <Provider store={store}>
       <ConnectedRouter history={History}>
         <Switch>
-          <Route path="/user/login" component={LoginUser}></Route>
           <Route path="/" component={Layouts} ></Route>
         </Switch>
       </ConnectedRouter>

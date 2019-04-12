@@ -1,32 +1,43 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
+import { Layout, Tabs } from 'antd';
 import { connect } from 'react-redux';
 import styles from './BasicLayout.module.scss';
+import BaseHeader from './BaseHeader';
 
-const { Header, Content, Sider } = Layout;
+const {Content} = Layout;
+
+const BaseContent = (props) => {
+    const {routeAll} = props;
+    
+    return (
+        <Content className={styles["views-layouts-content"]}>
+            <div>
+                <Tabs>
+                    <Tabs.TabPane key={1} tab="tab1">
+                    <div
+                        className={styles["views-layouts-content-content"]}
+                    >   
+                        e2189371983
+                        {routeAll}
+                    </div>
+                    </Tabs.TabPane>
+                    <Tabs.TabPane key={2} tab="tab2">dsaks</Tabs.TabPane>
+                </Tabs>
+            </div>
+            
+        </Content>
+    )
+}
 
 class BasicLayout extends Component {
     render() {
         return (
             <Layout className={styles['outer-layout']}>
-                <Sider>
-                    <div className="layout-title">
-                        <h1 style={{
-                            color: '#fff',
-                        }}>嘿罗官网</h1>
-                    </div>
-                </Sider>
-                <Layout>
-                    <Header className={styles.header}>
-                       
-                    </Header>
+                <BaseHeader>
                 
-                    <Content>
-                        <div>
-                            dsadhsakjhdhadsajdahkdhkashdkshajkdhsajkhdksahks
-                        </div>
-                    </Content>
-                </Layout>
+                </BaseHeader>
+                <BaseContent>
+                </BaseContent>
             </Layout>
         );
     }
